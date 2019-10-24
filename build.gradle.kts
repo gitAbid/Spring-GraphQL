@@ -24,6 +24,7 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("com.graphql-java:graphql-spring-boot-starter:5.0.2")
 	implementation("com.graphql-java:graphql-java-tools:5.2.4")
+	implementation("org.springframework.data:spring-data-jpa:2.2.0.RELEASE")
 	runtimeOnly("com.h2database:h2")
 	testImplementation("org.springframework.boot:spring-boot-starter-test") {
 		exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
