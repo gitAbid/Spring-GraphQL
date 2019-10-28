@@ -13,7 +13,7 @@ import java.io.IOException
 import javax.annotation.PostConstruct
 
 @Service
-class GraphQlService(val allBooksDataFetcher: AllBooksDataFetcher,val bookDataFetcher: BookDataFetcher) {
+class GraphQlService(val allBooksDataFetcher: AllBooksDataFetcher, val bookDataFetcher: BookDataFetcher) {
 
     @Value("classpath:book.graphql")
     lateinit var resource: Resource
@@ -31,9 +31,7 @@ class GraphQlService(val allBooksDataFetcher: AllBooksDataFetcher,val bookDataFe
     private fun buildRuntimeDateWire(): RuntimeWiring {
         return RuntimeWiring.newRuntimeWiring()
                 .type("Query") { typeWiring ->
-                    typeWiring
-                            .dataFetcher("allBooks", allBooksDataFetcher)
-                            .dataFetcher("book", bookDataFetcher)
+                    typeWiring.dataFetchers(mapOf("allBooks" to allBooksDataFetcher, "book" to bookDataFetcher))
                 }
                 .build()
     }
