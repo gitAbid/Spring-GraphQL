@@ -4,12 +4,19 @@ schema {
 type Query {
     allBooks: [Book]
     book(id: String): Book
+    allAuthors:[Author]
+    author(id: String):Author
 }
 type Book{
     id:String
     title:String
-    authors:[String]
+    authors:[Author]
     publishDate:String
     publisher:String
     isbn:String
+}
+
+type Author{
+    id:String
+    name:String
 }
